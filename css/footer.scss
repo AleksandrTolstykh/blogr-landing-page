@@ -1,0 +1,25 @@
+$black-blue: hsl(240, 10%, 16%);
+$grayish-blue: hsl(240, 2%, 79%);
+$rounded-border-radius: 40px;
+$standard-font: "Ubuntu";
+$standard-weight: 300;
+
+#footer {
+  background-color: $black-blue;
+  border-top-right-radius: $rounded-border-radius;
+  color: $grayish-blue;
+  font-family: $standard-font;
+
+  h5 {
+    font-weight: $standard-weight * 2;
+  }
+
+  p {
+    font-weight: $standard-weight;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

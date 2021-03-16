@@ -1,0 +1,66 @@
+$dark-blue: hsl(208, 49%, 24%);
+$grayish-blue: hsl(207, 13%, 34%);
+$dark-grey-blue: hsl(237, 17%, 21%);
+$dark-desaturated-blue: hsl(237, 23%, 32%);
+$white: hsl(0, 0%, 100%);
+$rotate-degree: 90deg;
+$standard-weight: 300;
+$rounded-border-radius: 60px;
+$large-device-width: 992px;
+
+@mixin body-paragraph($offset) {
+  h2 {
+    color: $dark-blue;
+  }
+
+  p {
+    color: $grayish-blue;
+    font-weight: $standard-weight;
+  }
+
+  img.position-relative {
+    left: $offset;
+  }
+}
+
+body {
+  font-family: "Overpass";
+  font-weight: $standard-weight * 2;
+  overflow-x: hidden;
+}
+
+#body {
+  h1 {
+    color: $dark-blue;
+    text-align: center;
+  }
+
+  #paragraph-one {
+    @include body-paragraph(25%);
+  }
+
+  #paragraph-two {
+    background: url("../images/bg-pattern-circles.svg") -200px bottom, linear-gradient($rotate-degree, $dark-grey-blue, $dark-desaturated-blue);
+    background-repeat: no-repeat;
+    border-bottom-left-radius: $rounded-border-radius;
+    border-top-right-radius: $rounded-border-radius;
+    color: $white;
+
+    @media screen and (max-width: $large-device-width) {
+      background: url("../images/bg-pattern-circles.svg"), linear-gradient($rotate-degree * 2, $dark-grey-blue, $dark-desaturated-blue);
+      background-position: center;
+    }
+
+    h2 {
+      font-weight: $standard-weight * 2;
+    }
+
+    p {
+      font-weight: $standard-weight;
+    }
+  }
+
+  #paragraph-three {
+    @include body-paragraph(-25%);
+  }
+}

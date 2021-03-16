@@ -1,0 +1,152 @@
+$very-light-red: hsl(13, 100%, 72%);
+$very-light-red-hover: hsl(355, 100%, 74%);
+$light-red: hsl(353, 100%, 62%);
+$light-red-text: hsl(356, 100%, 66%);
+$dark-blue: hsl(208, 49%, 24%);
+$grayish-blue: hsl(240, 2%, 79%);
+$white: hsl(0, 0%, 100%);
+$rotate-degree: 90deg;
+$rounded-border-radius: 40px;
+$overpass-font: "Overpass";
+$standard-weight: 600;
+$title-font-size: 60px;
+$large-device-width: 992px;
+$small-device-width: 768px;
+
+@mixin header-font {
+  color: $white;
+  font-family: $overpass-font;
+  font-weight: $standard-weight;
+}
+
+#header {
+  @include header-font;
+  border-bottom-left-radius: $rounded-border-radius;
+  background: url("../images/bg-pattern-intro.svg"), linear-gradient($rotate-degree, $very-light-red, $light-red);
+  background-position: center;
+  background-size: 2000px;
+
+  @media screen and (max-width: $large-device-width) {
+    background: url("../images/bg-pattern-intro.svg"), linear-gradient($rotate-degree * 2, $very-light-red, $light-red);
+    background-position: center;
+  }
+
+  #navbar {
+    @media screen and (max-width: $small-device-width) {
+      background-color: $white;
+      border-radius: $rounded-border-radius / 2;
+      text-align: center;
+      padding: 2rem;
+    }
+  }
+
+  nav {
+    background-color: transparent!important;
+  }
+
+  a {
+    @include header-font;
+    @media screen and (max-width: $small-device-width) {
+      color: $dark-blue;
+    }
+  }
+
+  button {
+    @include header-font;
+  }
+
+  h1 {
+    font-size: $title-font-size;
+  }
+
+  p {
+    font-weight: $standard-weight / 2;
+  }
+
+  .navbar-toggler[aria-expanded='false'] {
+    background-image: url("../images/icon-hamburger.svg");
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+
+  .navbar-toggler[aria-expanded='true'] {
+    background-image: url("../images/icon-close.svg");
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+
+  .navbar-toggler {
+    border: none;
+    width: 30px;
+    height: 30px;
+
+    &:focus, &:active {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .dropdown-menu {
+    text-align: center;
+
+    @media screen and (max-width: $small-device-width) {
+      background-color: $grayish-blue;
+    }
+  }
+
+  .dropdown-item {
+    color: $dark-blue;
+    font-weight: $standard-weight / 2;
+    &:hover {
+      font-weight: $standard-weight;
+    }
+  }
+
+  .dropdown-toggle {
+    &:hover {
+      text-decoration: underline;
+    }
+    &:focus {
+      color: $grayish-blue;
+      &::after {
+        transform: rotate($rotate-degree * 2);
+      }
+    }
+  }
+
+  .rounded-button {
+    border-radius: $rounded-border-radius;
+  }
+
+  .login-button {
+    @media screen and (max-width: $small-device-width) {
+      color: $dark-blue;
+    }
+  }
+
+  .signup-button {
+    @media screen and (max-width: $small-device-width) {
+      background: linear-gradient($rotate-degree, $very-light-red, $light-red);
+      color: $white!important;
+    }
+  }
+
+  .white-button {
+    background-color: $white;
+    color: $light-red-text;
+    &:hover {
+      background-color: $very-light-red-hover;
+      color: $white;
+    }
+  }
+
+  .transparent-button {
+    background-color: transparent;
+    border: solid 1px;
+    border-color: $white;
+    &:hover {
+      background-color: $white;
+      color: $very-light-red-hover;
+    }
+  }
+}
